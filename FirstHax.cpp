@@ -22,15 +22,13 @@ int main()
 	if (processId == NULL)
 	{
 		std::cout << "Process not found niggah" << std::endl;
-		CloseHandle(handle);
 		exit(-1);
 	}
 	//
 	handle = OpenProcess(PROCESS_ALL_ACCESS, FALSE, processId);
-	if (handle == INVALID_HANDLE_VALUE)
+	if (handle == INVALID_HANDLE_VALUE || handle == NULL)
 	{
 		std::cout << "Process not found niggah" << std::endl;
-		CloseHandle(handle);
 		exit(-1);
 	}
 
@@ -64,7 +62,7 @@ int main()
 		}
 
 		// Antiflash - Probably not working and VAC if used 
-		if (GetAsyncKeyState(VK_NUMPAD0))
+		/** if (GetAsyncKeyState(VK_NUMPAD0))
 		{
 			auto entity_list = magic.read<uintptr_t>(base + 0x4A8574C);
 
@@ -76,7 +74,7 @@ int main()
 
 				std::cout << "Player " << i << ": " << magic.read<int>(player + 0x100) << std::endl;
 			}
-		}
+		}*/
 		Sleep(5);
 	}
 	CloseHandle(handle);
