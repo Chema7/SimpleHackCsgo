@@ -22,7 +22,7 @@ int main()
 	if (processId == NULL)
 	{
 		std::cout << "Process not found niggah" << std::endl;
-		CloseHandle(hwnd);
+		CloseHandle(handle);
 		exit(-1);
 	}
 	//
@@ -30,7 +30,7 @@ int main()
 	if (handle == INVALID_HANDLE_VALUE)
 	{
 		std::cout << "Process not found niggah" << std::endl;
-		CloseHandle(hwnd);
+		CloseHandle(handle);
 		exit(-1);
 	}
 
@@ -79,7 +79,7 @@ int main()
 		}
 		Sleep(5);
 	}
-	CloseHandle(hwnd);
+	CloseHandle(handle);
 	std::cin.get();
 	std::cin.get();
 	
